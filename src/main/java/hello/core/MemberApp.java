@@ -4,8 +4,6 @@ import hello.core.member.Grade;
 import hello.core.member.Member;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 public class MemberApp {
 	public static void main(String[] args) {
@@ -14,6 +12,6 @@ public class MemberApp {
 		memberService.join(member);
 
 		Member findMember = memberService.findMember(1L);
-		System.out.println("new member1 = " + member.getName());
-		System.out.println("find Member = " + findMember.getName());
+		System.out.println("member = " + member.getName());
+		System.out.println("findMember = " + findMember.getName());
 	} }
