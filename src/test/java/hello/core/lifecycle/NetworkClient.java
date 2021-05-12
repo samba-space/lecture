@@ -26,7 +26,7 @@ public class NetworkClient implements InitializingBean, DisposableBean {
 
     //서비스 종료 시 호출
     public void disconnect() {
-        System.out.println("close: " + url);
+        System.out.println("close: " + url); 
     }
 
     @Override
