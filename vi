@@ -1,0 +1,16 @@
+  143  ls 
+  144  cd workspace
+  145  ls
+  146  cd lecture
+  147  git add .
+  148  git commit -m "jdk proxy"
+  149  git push -u orgin main
+  150  git remote
+  151  git remote -l
+  152  git remote -v
+  153  git remote 
+  154  git push -u origin main
+  155  history
+  156  vi history
+  157  history
+  158  history >> vi
