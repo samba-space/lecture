@@ -13,3 +13,4 @@ public class ItemForm {
     private MultipartFile attachFile;
     private List<MultipartFile> imageFiles;
 }
+

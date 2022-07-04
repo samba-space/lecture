@@ -23,7 +23,7 @@ public class FileStore {
 
     public List<UploadFile> storeFiles(List<MultipartFile> multipartFiles) throws IOException {
         List<UploadFile> storeFileResult = new ArrayList<>();
-        for (MultipartFile multipartFile : multipartFiles) {
+         for (MultipartFile multipartFile : multipartFiles) {
             if (!multipartFile.isEmpty()) {
                 storeFileResult.add(storeFile(multipartFile));
             }
@@ -35,7 +35,6 @@ public class FileStore {
         if (multipartFile.isEmpty()) {
             return null;
         }
-
         String originalFilename = multipartFile.getOriginalFilename();
         String storeFileName = createStoreFileName(originalFilename);
         multipartFile.transferTo(new File(getFullPath(storeFileName)));
@@ -52,6 +51,4 @@ public class FileStore {
         int pos = originalFilename.lastIndexOf(".");
         return originalFilename.substring(pos + 1);
     }
-
-
 }
