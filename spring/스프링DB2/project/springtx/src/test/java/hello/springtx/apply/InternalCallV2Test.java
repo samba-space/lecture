@@ -31,18 +31,16 @@ public class InternalCallV2Test {
     static class InternalCallV1TestConfig {
 
         @Bean
-        CallService callService() {
-            return new CallService(internalService());
+        CallService callService(InternalService internalService) {
+            return new CallService(internalService);
         }
 
         @Bean
         InternalService internalService() {
             return new InternalService();
         }
-
     }
 
-    @Slf4j
     @RequiredArgsConstructor
     static class CallService {
 
@@ -57,6 +55,8 @@ public class InternalCallV2Test {
         private void printTxInfo() {
             boolean txActive = TransactionSynchronizationManager.isActualTransactionActive();
             log.info("tx active={}", txActive);
+            boolean readOnly = TransactionSynchronizationManager.isCurrentTransactionReadOnly();
+            log.info("tx readOnly={}", readOnly);
         }
     }
 
@@ -71,6 +71,8 @@ public class InternalCallV2Test {
         private void printTxInfo() {
             boolean txActive = TransactionSynchronizationManager.isActualTransactionActive();
             log.info("tx active={}", txActive);
+            boolean readOnly = TransactionSynchronizationManager.isCurrentTransactionReadOnly();
+            log.info("tx readOnly={}", readOnly);
         }
     }
 }
