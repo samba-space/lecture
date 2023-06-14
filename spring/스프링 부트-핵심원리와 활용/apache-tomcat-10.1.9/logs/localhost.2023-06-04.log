@@ -1,3 +1,5 @@
 04-Jun-2023 21:45:06.190 정보 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
 04-Jun-2023 21:45:06.191 정보 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
 04-Jun-2023 21:45:06.195 정보 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@55f45b92')
+04-Jun-2023 22:11:07.043 정보 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+04-Jun-2023 22:11:07.043 정보 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
