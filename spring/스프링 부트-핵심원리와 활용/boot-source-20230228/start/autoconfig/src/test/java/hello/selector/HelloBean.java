@@ -1,2 +1,4 @@
-package hello.selector;public class HelloBean {
+package hello.selector;
+
+public class HelloBean {
 }
