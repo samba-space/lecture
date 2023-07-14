@@ -1,4 +1,6 @@
 management:
+  server:
+    port: 8080
   info:
     java:
       enabled: true
@@ -20,3 +22,7 @@ info:
   app:
     name: hello-actuator
     company: jk
+
+logging:
+  level:
+    hello.controller: debug
