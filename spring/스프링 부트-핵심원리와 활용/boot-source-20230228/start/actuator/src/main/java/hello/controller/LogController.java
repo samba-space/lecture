@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-public class LogController {
+public class Dive {
+
+    private static ThreadLocal<SessionInfo> ses = new ThreadLocal<SessionInfo>()
 
     @GetMapping("/log")
     public String log() {
