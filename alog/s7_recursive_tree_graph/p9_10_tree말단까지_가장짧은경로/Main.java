@@ -1,9 +1,14 @@
-package s7_recursive_tree_graph.p7_이진트리레벨탐색;
+package s7_recursive_tree_graph.p9_10_tree말단까지_가장짧은경로;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
+// 최단거리문제는 bfs로 푸는게 맞음 -> 최단거리에 도달하면 종료됨 -> bfs는 모든경로를 다 가봐야함
+// 비가중치는 bfs, 가중치는 다익스트라로 푼다
+// dfs는 제약이 있음(자식노드가 한쪽만 있으면 에러남, 즉 이진트리여야함)
 public class Main {
+
+    private static int answer = Integer.MAX_VALUE;
 
     public static class Node {
         private Node lt;
@@ -21,32 +26,18 @@ public class Main {
         root.lt.lt = new Node(4);
         root.lt.rt = new Node(5);
         root.rt = new Node(3);
-        root.rt.lt = new Node(6);
-        root.rt.rt = new Node(7);
 
-        bfs(root);
+        dfs(0, root);
     }
 
-    public static void bfs(Node root) {
-        Queue<Node> queue = new LinkedList<>();
-        queue.offer(root);
-        int L = 0;
-
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            System.out.print(L + " : ");
-            for (int i = 0; i < size; i++) {
-                Node findNode = queue.poll();
-                System.out.print(findNode.value + " ");
-                if (findNode.lt != null ) {
-                    queue.offer(findNode.lt);
-                }
-                if(findNode.rt != null) {
-                    queue.offer(findNode.rt);
-                }
-            }
-            L++;
-            System.out.println();
+    public static void dfs(int L, Node node) {
+        if (node == null) {
+            answer = Math.max(answer, L);
+            return;
         }
+
+        dfs(L + 1, node.lt);
+        dfs(L + 1, node.rt);
     }
+
 }
