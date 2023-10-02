@@ -7,20 +7,21 @@ public class Solution1 {
 
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        String input1 = in.nextLine();
-        String input2 = in.nextLine();
-        String[] s1 = input2.split(" ");
-        String input3 = in.nextLine();
-        String input4 = in.nextLine();
-        String[] s2 = input4.split(" ");
-        ArrayList<Integer> solution = solution(Integer.parseInt(input1), s1, Integer.parseInt(input3), s2);
-
-        for (int i = 0; i < solution.size(); i++) {
-            System.out.print(solution.get(i) + " ");
-        }
-        System.out.println();
-        return;
+        findDuplicate(new int[]{1, 3, 4, 2, 2});
+//        Scanner in = new Scanner(System.in);
+//        String input1 = in.nextLine();
+//        String input2 = in.nextLine();
+//        String[] s1 = input2.split(" ");
+//        String input3 = in.nextLine();
+//        String input4 = in.nextLine();
+//        String[] s2 = input4.split(" ");
+//        ArrayList<Integer> solution = solution(Integer.parseInt(input1), s1, Integer.parseInt(input3), s2);
+//
+//        for (int i = 0; i < solution.size(); i++) {
+//            System.out.print(solution.get(i) + " ");
+//        }
+//        System.out.println();
+//        return;
     }
 
     public static ArrayList<Integer> solution(int firstSize, String[] firstStrArray, int secondSize, String[] secondStrArray) {
@@ -52,5 +53,25 @@ public class Solution1 {
             result[i] = Integer.parseInt(array[i]);
         }
         return result;
+    }
+
+
+    public static int findDuplicate(int[] nums) {
+        int slow = nums[0];
+        int fast = nums[0];
+
+        do {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        } while (slow != fast);
+
+        slow = nums[0];
+        while (fast != slow) {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        System.gc();
+        return fast;
+
     }
 }
