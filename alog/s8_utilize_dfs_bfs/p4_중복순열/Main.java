@@ -1,7 +1,5 @@
 package s8_utilize_dfs_bfs.p4_중복순열;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
