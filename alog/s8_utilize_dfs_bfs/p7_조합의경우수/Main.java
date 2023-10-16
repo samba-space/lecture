@@ -1,35 +1,31 @@
 package s8_utilize_dfs_bfs.p7_조합의경우수;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class Main {
 
-//    int[] inputs = new int[]{1, 2, 3, 4, 5};
-    int[] checks = new int[5];
-    int N = 5;
-    int R = 3;
+    int[][] check;
+    int N, R;
 
     public static void main(String[] args){
         Scanner in=new Scanner(System.in);
         Main T = new Main();
-        T.dfs(0);
+        T.N = in.nextInt();
+        T.R = in.nextInt();
+        T.check = new int[T.N + 1][T.N + 1];
+        int result = T.combination(T.N, T.R);
+        System.out.println(result);
     }
 
-    public void dfs(int L) {
-        if (L == N) {
-            for (int i = 0; i < N; i++) {
-                if (checks[i] == 1) {
-                    System.out.print(i + 1 + " ");
-                }
-            }
-            System.out.println();
-            return;
+    private int combination(int n, int r) {
+        if (check[n][r] != 0) {
+            return check[n][r];
         }
-        checks[L] = 1;
-        dfs(L + 1);
-        checks[L] = 0;
-        dfs(L + 1);
+        if (n == r || r == 0) {
+            return check[n][r] = 1;
+        }
+        return check[n][r] = combination(n - 1, r) + combination(n - 1, r - 1);
     }
+
+
 }
