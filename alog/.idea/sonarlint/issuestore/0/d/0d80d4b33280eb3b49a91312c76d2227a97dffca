@@ -1,0 +1,11 @@
+
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶â­•ùÿÿÿÿ8µ¬Š¾³1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»ì‘„8·¬Š¾³1
+h	java:S116	"LRename this field "M" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢¡”Ô8Õ®Š¾³1
+h	java:S116	"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢¡”Ô8Õ®Š¾³1
+<
+java:S1659	"Declare "N" on a separate line.(¢¡”Ô8×®Š¾³1
+Z	java:S106!"9Replace this use of System.out or System.err by a logger.(óŠÕÎÿÿÿÿÿ8à®Š¾³1
+U	java:S106$"9Replace this use of System.out or System.err by a logger.(“Ü–×8á®Š¾³1
+o
+java:S3776'"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(¾¡¤Ö8á®Š¾³1

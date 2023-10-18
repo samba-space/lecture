@@ -1,0 +1,8 @@
+
+Q
+java:S1066/"/Merge this if statement with the enclosing one.(ΙΨΡϋÿÿÿÿ8§θε‘²1
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶β­•ωÿÿÿÿ8¨θε‘²1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(λδ±•ψÿÿÿÿ8©θε‘²1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(“ά–Χ8ςιε‘²1
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(Ύ΅¤Φ8σιε‘²1
