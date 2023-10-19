@@ -35,7 +35,6 @@ public class Main {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 int[] currentPosition = queue.poll();
-                check[currentPosition[1]][currentPosition[0]] = 1;
 
                 if (currentPosition[0] == 7 && currentPosition[1] == 7) {
                     return answer;
@@ -45,6 +44,7 @@ public class Main {
                     int nextY = currentPosition[1] + dirY[j];
                     if (nextX >= 1 && nextX <= 7 && nextY >= 1 && nextY <= 7) {
                         if (map[nextY][nextX] == 0 && check[nextY][nextX] == 0) {
+                            check[nextY][nextX] = 1;
                             queue.offer(new int[]{nextX, nextY});
                         }
                     }

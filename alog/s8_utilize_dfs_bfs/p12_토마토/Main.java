@@ -48,13 +48,12 @@ public class Main {
             }
         }
         while (!queue.isEmpty()) {
-            if (answer > (M + N - 2)) {
-                return -1;
+            if (ripeCount == unRipeCount) {
+                return answer;
             }
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 int[] currentStatus = queue.poll();
-                map[currentStatus[0]][currentStatus[1]] = -1;
                 for (int j = 0; j < 4; j++) {
                     int nextY = currentStatus[0] + dirY[j];
                     int nextX = currentStatus[1] + dirX[j];
@@ -62,9 +61,6 @@ public class Main {
                         map[nextY][nextX] = 1;
                         queue.offer(new int[]{nextY, nextX});
                         ripeCount++;
-                        if (ripeCount == unRipeCount) {
-                            return answer + 1;
-                        }
                     }
                 }
             }

@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main {
+public class Main_dfs {
 
     int N;
     int[] dirX = {0, 1, 0, -1, -1, 1, -1, 1};
@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
-        Main T = new Main();
+        Main_dfs T = new Main_dfs();
         T.N = in.nextInt();
         T.map = new int[T.N][T.N];
         T.visited = new int[T.N][T.N];

@@ -1,12 +1,0 @@
-
-K
-java:S1121".Extract the assignment out of this expression.(’–‹ß8•þëì±1
-K
-java:S1121".Extract the assignment out of this expression.(Âæ“ý8û¹ìì±1
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶â­•ùÿÿÿÿ8¿Ñäì±1
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ñðèâ8ÁÑäì±1
-h	java:S116"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï’ôå8ÊÑäì±1
-h	java:S116"LRename this field "R" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï’ôå8ÊÑäì±1
-<
-java:S1659"Declare "R" on a separate line.(Ï’ôå8ËÑäì±1
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(®ýáëûÿÿÿÿ8ÒÑäì±1
