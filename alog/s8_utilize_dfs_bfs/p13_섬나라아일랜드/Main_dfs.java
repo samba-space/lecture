@@ -1,7 +1,5 @@
 package s8_utilize_dfs_bfs.p13_섬나라아일랜드;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class Main_dfs {
