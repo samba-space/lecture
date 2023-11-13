@@ -1,9 +1,6 @@
 package s6_sort_search.p7_좌표정렬;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args){
@@ -28,8 +25,8 @@ public class Main {
             positions.add(new Position(inputs[i][0], inputs[i][1]));
         }
 
-//        positions.sort(Comparator.comparing(Position::getX)
-//                .thenComparing(Position::getY));
+        positions.sort(Comparator.comparing(Position::getX)
+                .thenComparing(Position::getY));
         Collections.sort(positions);
 
         return positions;
