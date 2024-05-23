@@ -1,5 +1,6 @@
 package com.example.userservice.service;
 
+import com.example.userservice.client.OrderServiceClient;
 import com.example.userservice.dto.FindOrderResponse;
 import com.example.userservice.dto.FindUserAndOrderResponse;
 import com.example.userservice.dto.FindUserResponse;
@@ -23,9 +24,12 @@ public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
+    private final OrderServiceClient orderServiceClient;
+
+    public UserService(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder, OrderServiceClient orderServiceClient) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.orderServiceClient = orderServiceClient;
     }
 
     public void createUser(UserCreateRequest userCreateRequest) {
@@ -34,8 +38,8 @@ public class UserService implements UserDetailsService {
 
     public FindUserAndOrderResponse findUserById(String userId) {
         UserEntity findUser = userRepository.findByUserId(userId);
-        List<FindOrderResponse> orders = new ArrayList<>();
-        return FindUserAndOrderResponse.of(findUser, orders);
+        List<FindOrderResponse> findOrders = orderServiceClient.getOrders(userId);
+        return FindUserAndOrderResponse.of(findUser, findOrders);
     }
 
     public List<FindUserResponse> findUsers() {

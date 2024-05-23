@@ -25,7 +25,7 @@ public class UserController {
 
     @GetMapping("/health_check")
     public String status() {
-        return "health check";
+        return "token secret=" + environment.getProperty("token.secret");
     }
 
     @GetMapping("/welcome")

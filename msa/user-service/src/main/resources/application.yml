@@ -2,8 +2,16 @@ server:
   port: 0
 
 spring:
+  profiles:
+    active: dev
   application:
     name: user-service
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    stream:
+      username: guest
+      password: guest
   h2:
     console:
       enabled: true
@@ -19,6 +27,8 @@ spring:
     url: jdbc:h2:mem:testdb
     username: sa
     password:
+  config:
+    import: "optional:configserver:http://localhost:8888"
 
 eureka:
   instance:
@@ -34,8 +44,10 @@ greeting:
 
 logging:
   level:
-    com.example.user-service: debug
+    com.example.userservice.client: debug
 
-token:
-  expiration_time: 86400000
-  secret: secretKeysecretKeysecretKeysecretKeysecretKeysecretKeysecretKeysecretKeysecretKeysecretKeysecretKeysecretKeysecretKey
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, refresh, health, beans, busrefresh

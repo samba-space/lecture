@@ -48,6 +48,7 @@ public class WebSecurity {
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers(PathRequest.toH2Console()).permitAll()
+                        .requestMatchers("/actuator/**").permitAll()
                         .requestMatchers("/user-service/**").authenticated()
                         .anyRequest().permitAll()
                 )
