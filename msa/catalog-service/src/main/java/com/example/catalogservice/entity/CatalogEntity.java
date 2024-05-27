@@ -28,4 +28,7 @@ public class CatalogEntity implements Serializable {
 
     @Column(nullable = false)
     private Long unitPrice;
+    public void decreaseStock(Integer quantity) {
+        stock = stock - quantity;
+    }
 }

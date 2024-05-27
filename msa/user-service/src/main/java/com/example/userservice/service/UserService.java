@@ -7,6 +7,9 @@ import com.example.userservice.dto.FindUserResponse;
 import com.example.userservice.dto.UserCreateRequest;
 import com.example.userservice.entity.UserEntity;
 import com.example.userservice.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,18 +21,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Slf4j
 @Service
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
-
     private final OrderServiceClient orderServiceClient;
+    private final CircuitBreakerFactory circuitBreakerFactory;
 
-    public UserService(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder, OrderServiceClient orderServiceClient) {
+    public UserService(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder, OrderServiceClient orderServiceClient, CircuitBreakerFactory circuitBreakerFactory) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.orderServiceClient = orderServiceClient;
+        this.circuitBreakerFactory = circuitBreakerFactory;
     }
 
     public void createUser(UserCreateRequest userCreateRequest) {
@@ -37,8 +42,12 @@ public class UserService implements UserDetailsService {
     }
 
     public FindUserAndOrderResponse findUserById(String userId) {
+        log.info("before call order msa");
         UserEntity findUser = userRepository.findByUserId(userId);
-        List<FindOrderResponse> findOrders = orderServiceClient.getOrders(userId);
+        CircuitBreaker circuitbreaker = circuitBreakerFactory.create("circuitbreaker");
+        List<FindOrderResponse> findOrders = circuitbreaker.run(() -> orderServiceClient.getOrders(userId),
+                throwable -> List.of());
+        log.info("after call order msa");
         return FindUserAndOrderResponse.of(findUser, findOrders);
     }
 
